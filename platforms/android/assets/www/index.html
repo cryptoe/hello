@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/home.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/home.css" />
+    <link rel="stylesheet" type="text/css" href="css/photographer-info.css" />
+    <title>Wed Up</title>
+</head>
+
+
+<body>
+    <!--
+          **********************************************
+          ******************  HomePage *****************
+          **********************************************
+          -->
+    <div data-role="page" id="home" data-theme="b">
+        <div id="selectField1" data-role="header" data-position="fixed">
+            <div data-role="navbar" style="margin:10px" id="segment">
+                <ul id="seg">
+                    <li value="5"><a href="#" value="5" style="border-bottom-left-radius: 5px;border-top-left-radius: 5px;height: 5px;background-color: #2E2E2E;"><span style="position: relative;top: -3px;">Brides</span></a>
+                    </li>
+                    <li value="4"><a href="#" value="4" style="height: 5px;background-color: #2E2E2E;"><span style="position: relative;top: -3px;">Musics</span></a>
+                    </li>
+                    <li value="3"><a href="#" value="3" style="height: 5px;background-color: #2E2E2E;"><span style="position: relative;top: -3px;">Photos</span></a>
+                    </li>
+                    <li value="2"><a href="#" value="2" style="border-bottom-right-radius: 5px;border-top-right-radius: 5px;height: 5px;background-color: #2E2E2E;" class="ui-btn-active"><span style="position: relative;top: -3px;">Places</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="header" style="padding-bottom: 10px;">
+                <a href="#regionWindow" style="margin-left:20px;height: 10px;" class="ui-btn-left ui-btn ui-icon-location ui-btn-icon-right ui-btn ui-corner-all ui-shadow ui-btn-inline" id="regionBtn" data-rel="popup" data-position-to="window"><span style="position: relative;top: -3px;">Region</span></a>
+                <h1></h1>
+                <a href="#subCategoryWindow" style="margin-right:20px;height: 10px;" class="ui-btn-right ui-btn ui-icon-bullets ui-btn-icon-right ui-btn ui-corner-all ui-shadow ui-btn-inline" id="subCategoryBtn" data-rel="popup" data-position-to="window"><span style="position: relative;top: -3px;">Sub-Category</span></a>
+            </div>
+        </div>
+        <div data-role="popup" id="regionWindow" data-theme="b">
+            <ul data-role="listview" id="region">
+            </ul>
+        </div>
+        <div data-role="popup" id="subCategoryWindow" data-theme="b">
+            <ul data-role="listview" id="subCategory">
+            </ul>
+        </div>
+
+        <div data-role="content" style="padding:0px;background-color: #353535;">
+            <ul data-role="listview" data-filter="true" data-inset="true" id="photographersList">
+            </ul>
+        </div>
+        <div id="footer" data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#contactUS" style="background-color:#1D1D1D" data-icon="gear">Settings</a>
+                    </li>
+                    <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid" class="ui-btn-active">Suppliers</a>
+                    </li>
+                    <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user">Forum</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /footer -->
+    </div>
+    <!--
+              **********************************************
+              ******************  About Suppliers **********
+              **********************************************
+            -->
+    <div id="about" data-role="page" data-theme="b">
+        <div data-role="header" data-position="fixed">
+            <div data-role="header" class="photographer-header top-header">
+                <a href="index.html" data-role="button" data-icon="arrow-l" data-iconpos="notext" data-inline="true" class="ui-link ui-btn ui-btn-b ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all" role="button">My button</a>
+                <p id="topName" class="allign-middle"> Page Title </p>
+                <a href="index.html" id="call_photographer_info" style="float:right;padding: 0px 0px !important;background-color: rgba(0, 0, 0, 0)!important;">
+                    <img src="img/call.png" style="padding: 0px 0px !important;
+width: 89px;
+margin-top: 11px;
+background-color: #111 !important;">
+                </a>
+            </div>
+        </div>
+        <div id="backdrop" class="photographer-head">
+            <div style="height:41%">
+            </div>
+            <div class="photographer-circle-black">
+                <p id="circle_name" class="photographer-circle-text allign-middle">
+                    123123
+                </p>
+            </div>
+            <div class="allign-middle">
+                <span id="address_circle">
+             123eqweqweq</span>
+            </div>
+
+        </div>
+
+        <div data-role="navbar" id="photographer-info-nav-bar" class="navbar" role="navigation">
+            <ul class="ui-grid-b">
+                <li class="ui-block-a">
+                    <a href="" data-role="button" class="navbar-text-style ui-corner-all" id="video">
+VIDEOS
+</a>
+                </li>
+                <li class="ui-block-b"> <a href="" data-role="button" class="navbar-text-style" id="gallery">
+GALLERIES</a>
+                </li>
+                <li class="ui-block-c"> <a href="" data-role="button" class="ui-btn-active navbar-text-style" id="about1">ABOUT
+                 </a>
+                </li>
+            </ul>
+        </div>
+        <div id="main-content" data-role="content">
+            <div id="photographer-info-slide">
+                <div class="mid-text">
+                    <!--<span id="left3" style="font-size: .5em;">
+            name
+        </span>-->
+                    <span id="left2" style="font-size: .7em;">
+            age
+        </span>
+                    <span id="left1" style="font-size: 1.4em;">
+            sex
+        </span>
+                </div>
+                <div class="ui-grid-b" style="height: 8em">
+                    <div class="ui-block-a" style="width:65%">
+                        <div>
+                            <a id="CALL_ME_NAV_BAR" href="#" class="ui-btn ui-icon-phone ui-btn-icon-right photographer-call"><span class="call-text">CALL ME</span></a>
+                        </div>
+                        <div>
+                            <a id="MESSAGE_NAV_BAR" href="#" class="ui-btn ui-icon-mail ui-btn-icon-right photographer-call" style="background-color: #1C8EEF !important; ">
+                                <span class="call-text">MESSAGE</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ui-block-b" data-theme="b" sytle="width:30%">
+                        <img id="logo_image" src="img/photograper.png" style="height:7.8em;width:89%" />
+                    </div>
+                </div>
+                <br/>
+
+                <div data-theme="b">
+                    <div id="phtotographer_info_text" style="
+    border:1px solid white;
+    margin:2px;
+    direction: rtl;
+">
+                        adsasdas dasdasd asdasdas dfasdasdas dasdasd dasdas
+                    </div>
+                    <br/>
+                </div>
+            </div>
+
+            <div id="photogallery-div" class="display-call">
+                <!-- <div data-role="collapsible" data-content-theme="false">
+
+                    <h4> <span class="collapsible-text">PHOTO ALBUM 1<span></h4>
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a">
+                            <a href="#popupPhotoLandscape" data-rel="popup" ><img src="img/photograper.png" class="gallery-images"/></a>
+                            <div data-role="popup" id="popupPhotoLandscape" class="photopopup" data-overlay-theme="a" data-corners="false" >
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="img/photograper.png" style />
+</div>
+                            
+
+                        </div>
+                        <div class="ui-block-b"><img src="img/photograper.png" class="gallery-images" />
+                        </div>
+                        <div class="ui-block-c"><img src="img/photograper.png" class="gallery-images" />
+                        </div>
+                        <div class="ui-block-a"><img src="img/photograper.png" class="gallery-images" />
+                        </div>
+                        <div class="ui-block-b"><img src="img/photograper.png" class="gallery-images" />
+                        </div>
+                        <div class="ui-block-c"><img src="img/photograper.png" class="gallery-images" />
+                        </div>
+                    </div>
+                </div>
+                <div data-role="collapsible" data-content-theme="false">
+
+                    <h4> <span class="collapsible-text">PHOTO ALBUM 2<span></h4>
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a"><img src="img/photograper.png" class="gallery-images" />
+                        </div>
+                        <div class="ui-block-b"><img src="img/photograper.png" class="gallery-images" />
+                        </div>
+                        <div class="ui-block-c"><img src="img/photograper.png" class="gallery-images" />
+                        </div>
+                        <div class="ui-block-a"><img src="img/photograper.png" class="gallery-images" />
+                        </div>
+                        <div class="ui-block-b"><img src="img/photograper.png" class="gallery-images" />
+                        </div>
+                        <div class="ui-block-c"><img src="img/photograper.png" class="gallery-images" />
+                        </div>
+                    </div>
+                </div>-->
+
+                <br/>
+            </div>
+
+            <div id="video-gallery-1" class="display-call">
+
+                <!--<div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <video poster="img/photograper.png" class="photographer-video-css" controls>
+                            <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm>
+                                <source src=http://techslides.com/demos/sample-videos/small.ogv type=video/ogg>
+                                    <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
+                                        <source src=http://techslides.com/demos/sample-videos/small.3gp type=video/3gp>
+                        </video>
+                    </div>
+                    <div class="ui-block-b">
+                        <video poster="img/photograper.png" class="photographer-video-css" controls>
+                            <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm>
+                                <source src=http://techslides.com/demos/sample-videos/small.ogv type=video/ogg>
+                                    <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
+                                        <source src=http://techslides.com/demos/sample-videos/small.3gp type=video/3gp>
+                        </video>
+                    </div>
+                    <div class="ui-block-a">
+                        <video poster="img/photograper.png" class="photographer-video-css" controls>
+                            <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm>
+                                <source src=http://techslides.com/demos/sample-videos/small.ogv type=video/ogg>
+                                    <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
+                                        <source src=http://techslides.com/demos/sample-videos/small.3gp type=video/3gp>
+                        </video>
+                    </div>
+                    <div class="ui-block-b">
+                        <video poster="img/photograper.png" class="photographer-video-css"  controls>
+                            <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm>
+                                <source src=http://techslides.com/demos/sample-videos/small.ogv type=video/ogg>
+                                    <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
+                                        <source src=http://techslides.com/demos/sample-videos/small.3gp type=video/3gp>
+                        </video>
+                    </div>
+                </div>
+            -->
+                <br/>
+            </div>
+            <div id="footer" data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#contactUS" style="background-color:#1D1D1D" data-icon="gear">Settings</a>
+                        </li>
+                        <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
+                        </li>
+                        <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user">Forum</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--
+                **********************************************
+                ******************  Contact-Us ***************
+                **********************************************
+                -->
+        <div data-role="page" id="contactUS" data-theme="b">
+            <div data-role="header">
+                <h1>Contact Us</h1>
+                <a href="#home" data-icon="back" data-iconpos="notext"></a>
+                <a href="#" id="send-feedback" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-mail">Send</a>
+            </div>
+            <!-- /header -->
+            <div data-role="content">
+                <div class="contact-thankyou" style="display: none;">
+                    Thank you. Your message has been sent. We will get back to you as soon as we can.
+                </div>
+                <div class="contact-form">
+
+                    <div data-role="fieldcontain" class="text-field">
+                        <label for="Name">First Name*:</label>
+                        <input type="text" name="firstname" value="" placeholder="" class="required" id="firstname" />
+                    </div>
+                    <!--<div data-role="fieldcontain" class="text-field">
+        <label for="surname">Last Name:</label>
+        <input type="text" name="surname" value="" placeholder="" id="surname" />
+      </div>
+       <div data-role="fieldcontain" class="text-field">
+        <label for="email">Email Address*:</label>
+        <input type="email" name="email" value="" placeholder="" class="required" id="email"  />
+      </div> -->
+                    <div data-role="fieldcontain" class="text-field">
+                        <label for="Address">Address*:</label>
+                        <input type="text" name="address" value="" placeholder="" class="required" id="address" />
+                    </div>
+                    <div data-role="fieldcontain" class="text-field">
+                        <label for="mobilephone">Mobile Number:</label>
+                        <input type="number" name="mobilephone" value="" placeholder="" id="mobilephone" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="message">Message*:</label>
+                        <textarea name="message" id="message" style: "height:100px" placeholder="Enter your message here..." class="required"></textarea>
+                    </div>
+                </div>
+                <!-- //.contact-form -->
+            </div>
+            <!-- /content -->
+            <div id="footer" data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#contactUS" style="background-color:#1D1D1D" data-icon="gear" class="ui-btn-active">Settings</a>
+                        </li>
+                        <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
+                        </li>
+                        <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user">Forum</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--
+    **********************************************
+    ******************  Forum ********************
+    **********************************************
+    -->
+        <div data-role="page" id="forum" data-theme="b" style="direction: rtl;">
+            <div data-role="content" id="forum_content"></div>
+            <div id="footer" data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#contactUS" style="background-color:#1D1D1D" data-icon="gear">Settings</a>
+                        </li>
+                        <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
+                        </li>
+                        <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user" class="ui-btn-active">Forum</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- content:forum -->
+        <script src="http://wedup.net/mobileapp/getClientsAll.php"></script>
+        <!-- <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script> 
+   -->
+</body>
+
+</html>
