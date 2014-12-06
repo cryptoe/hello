@@ -181,34 +181,16 @@ $(document).ready(function() {
     /**
      * Event handlers for forum code.
      */
-    $('a[href="#forum"]').on('click', function() {
-        showLoader();
-        var forumUrl = "http://forum-hatunot.com/forum-custom/script/index.php?tab1=custom_timeline&id=wedAppForumTest";
+    $('a[href="#forum"]').on('click', function() {        
         var forumDiv = $('#forum_content');
         if (forumDiv.html().trim() === "") {
-            $('#forum_content').load(forumUrl, function() {
-                $(".header-join-wrapper").on('click', function() {
-                    var url = $('.header-join-wrapper').attr('href');
-                    $('.header-join-wrapper').attr('href', "");
-                    var ref = window.open(url, '_blank', 'location=no');
-                    ref.addEventListener('loadstop', function(event) {
-                        var success = "http://forum-hatunot.com/forum-custom/Script//index.php?tab1=home#_=_";
-                        if (event.url === success) {
-                            ref.close();
-                            $('#forum_content').load(forumUrl);
-                            showLoader();
-                        }
-                    });
-                })
-            });
-        }
-
+    		forumLoad();
+    	}	
     });
-    //  $('.header-join-wrapper').on('click', function(){
-    //      openFB.init({appId:716728658405527,tokenStore:window.localStorage});
-    ////        openFB.init('YOUR_FB_APP_ID', 'http://localhost/openfb/oauthcallback.html', window.localStorage);
-    //      openFB.login();
-    //  });
+
+
+
+
 $("#regionBtn").click(function(){
         $('.ui-listview  a').removeClass('ui-icon-carat-r');
     });
@@ -219,6 +201,37 @@ $("#regionBtn").click(function(){
 
 
 });
+var isForumLoading = false;
+function forumLoad(){
+	var forumUrl = "http://forum-hatunot.com/forum-custom/script/index.php?tab1=custom_timeline&id=wedAppForumTest";
+	var forumDiv = $('#forum_content');
+	isForumLoading = true;
+	$('#forum_content').load(forumUrl, forumLoadSucces);
+}
+
+function forumLoadSucces(){
+	
+	isForumLoading = false;
+	followButton = '<a class="follow-'+grpId+'" onclick="SK_registerFollow('+grpId+');"> <i data-icon="plus" class="icon-plus progress-icon"></i> Join</a>';
+	if($('.story-publisher-box').length == 0){
+		$('.header-content').append(followButton);
+	}
+	
+	var refreshButton = '<a class="float-left" onclick="if(!isForumLoading)forumLoad();"> <i data-icon="refresh" class="icon-refresh"></i></a>';
+	$('.header-content').append(refreshButton);
+                $(".header-join-wrapper").on('click', function() {
+                    var url = $('.header-join-wrapper').attr('href');
+                    $('.header-join-wrapper').attr('href', "");
+                    var ref = window.open(url, '_blank', 'location=no');
+                    ref.addEventListener('loadstop', function(event) {
+                        var success = "http://forum-hatunot.com/forum-custom/Script//index.php?tab1=home#_=_";
+                        if (event.url === success) {
+                            ref.close();
+               				$('#forum_content').load(forumUrl,forumLoadSucces);
+                        }
+                    });
+            });
+}
 
 function filterData(regionID, subCategID) {
     showLoader();
@@ -439,14 +452,14 @@ function showLoader()
             theme: "b",
             html: ""
          });*/
-         navigator.notification.activityStart("Please Wait", "Loading...");
+//         navigator.notific	ation.activityStart("Please Wait", "Loading...");
 
 }
 function hideLoader()
 {
     //$.mobile.loading( "hide" );
     window.setTimeout(function() {
-navigator.notification.activityStop();
+//navigator.notification.activityStop();
 }, 100);
 
 }
