@@ -27,24 +27,31 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener("offline", this.onOffline, false);
     },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+        // app.receivedEvent('deviceready');
+             navigator.splashscreen.hide();
+       //  if(Connection.offline)
+         //{
+             
+        // }
     },
-    // Update DOM on a Received Event
+    onOffline: function(){
+        navigator.notification.alert(
+    'No Internet Connection Found!!!',  // message
+    app.receivedEvent('photographersList'),         // callback
+    'Error',            // title
+    'OK'                  // buttonName
+);        
+    },
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+       // ni = document.getElementById(id);
+       //ni.innerHTML = "<h2>No Internet Connection found!!!<h2>";
     }
 };
 
