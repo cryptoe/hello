@@ -95,13 +95,13 @@ $(document).ready(function() {
 
     $("#seg").on("click", ">li", function() {
         var a = $('#seg a');
-    	a.each(function(i){
-			$(a[i]).removeClass('ui-state-persist');
-			$(a[i]).removeClass('ui-btn-active');
-		});
-		$(this).children('a').addClass('ui-state-persist');
-		$(this).children('a').addClass('ui-btn-active');
-    	showLoader();
+        a.each(function(i){
+            $(a[i]).removeClass('ui-state-persist');
+            $(a[i]).removeClass('ui-btn-active');
+        });
+        $(this).children('a').addClass('ui-state-persist');
+        $(this).children('a').addClass('ui-btn-active');
+        showLoader();
         var catID = $(this).attr('value');
         $('#subCategory').empty();
         $('#subCategory').append($("<li id=0>").append("<a href=\"javascript:subCategoryClicked('ALL')\" data-rel=\"dialog\"  class=\"ui-btn ui-btn-icon-right ui-icon-carat-l\">ALL</a>"));
@@ -143,7 +143,7 @@ $(document).ready(function() {
                 }
             }
         }
-		hideLoader();
+        hideLoader();
         addElement('photographersList', divElement);
     });
 
@@ -183,7 +183,7 @@ $(document).ready(function() {
      */
     $('a[href="#forum"]').on('click', function() {
         showLoader();
-		var forumUrl = "http://forum-hatunot.com/forum-custom/script/index.php?tab1=custom_timeline&id=wedAppForumTest";
+        var forumUrl = "http://forum-hatunot.com/forum-custom/script/index.php?tab1=custom_timeline&id=wedAppForumTest";
         var forumDiv = $('#forum_content');
         if (forumDiv.html().trim() === "") {
             $('#forum_content').load(forumUrl, function() {
@@ -196,7 +196,7 @@ $(document).ready(function() {
                         if (event.url === success) {
                             ref.close();
                             $('#forum_content').load(forumUrl);
-							showLoader();
+                            showLoader();
                         }
                     });
                 })
@@ -210,12 +210,12 @@ $(document).ready(function() {
     //      openFB.login();
     //  });
 $("#regionBtn").click(function(){
-		$('.ui-listview  a').removeClass('ui-icon-carat-r');
-	});
+        $('.ui-listview  a').removeClass('ui-icon-carat-r');
+    });
 
-	$("#subCategoryBtn").click(function(){
-		$('.ui-listview  a').removeClass('ui-icon-carat-r');
-	});
+    $("#subCategoryBtn").click(function(){
+        $('.ui-listview  a').removeClass('ui-icon-carat-r');
+    });
 
 
 });
@@ -297,15 +297,16 @@ function addElement(divId, divString) {
 }
 
 function setPhotographerID(id) {
+    showLoader();
     $("#about").addClass("display-call");
-    alert(id);
+   
     $.ajax({
         type: "GET",
         url: "http://wedup.net/mobileapp/clientDetAll.php?id=" + id,
         dataType: "script",
         async: false
     });
-
+    hideLoader();
 }
 
 function clientDetails(dataJson, other, dataVideo, videoPath) {
@@ -403,7 +404,7 @@ function setClientsDet(data, regionJson, subCategoryJson) {
                     var logo = data[i]['logo'];
                     var phone = data[i]['phone'];
                     var address = data[i]['address'];
-             divElement = divElement + " <li id=" + id + " style=\"padding-left:15px;padding-right:15px;padding-bottom:5px;\" class=\"iconLeft\" data-icon=\"\"><a href='#about' class=\"ui-btn ui-btn-icon-right ui-nodisc-icon ui-icon-carat-l\"style=\"background: #222528;\"><div style=\"display: inline-block; float: right\"><img src=\'" + logo + "\' style=\"width:90px;height:90px\"/></div><div align=\"right\"style=\"display: inline-block; float: right; padding-right: 10px;font-weight: 100;color:#EAEAEA\">" + name + "</br>&nbsp;<h2 align=\"right\" style=\"color: #7F7F7F;font-size: small;\">" + address + "</h2><h2 align=\"right\" style=\"color:#C0C0C0;font-size: small;\">" + phone + "</h2></div></a></li>";
+             divElement = divElement + " <li id=" + id + " style=\"padding-left:15px;padding-right:15px;padding-bottom:5px;\" class=\"iconLeft\" data-icon=\"\"><a href='#about' onclick=\"setPhotographerID("+id+")\"class=\"ui-btn ui-btn-icon-right ui-nodisc-icon ui-icon-carat-l\"style=\"background: #222528;\"><div style=\"display: inline-block; float: right\"><img src=\'" + logo + "\' style=\"width:90px;height:90px\"/></div><div align=\"right\"style=\"display: inline-block; float: right; padding-right: 10px;font-weight: 100;color:#EAEAEA\">" + name + "</br>&nbsp;<h2 align=\"right\" style=\"color: #7F7F7F;font-size: small;\">" + address + "</h2><h2 align=\"right\" style=\"color:#C0C0C0;font-size: small;\">" + phone + "</h2></div></a></li>";
 
                 }
             }
@@ -432,7 +433,7 @@ function setClientsDet(data, regionJson, subCategoryJson) {
 function showLoader()
 {
 
-	/*  $.mobile.loading( "show", {
+    /*  $.mobile.loading( "show", {
             text: "Loading",
             textVisible: true,
             theme: "b",
@@ -443,8 +444,8 @@ function showLoader()
 }
 function hideLoader()
 {
-	//$.mobile.loading( "hide" );
-	window.setTimeout(function() {
+    //$.mobile.loading( "hide" );
+    window.setTimeout(function() {
 navigator.notification.activityStop();
 }, 100);
 
