@@ -335,7 +335,7 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
     $("#address_circle").text(dataJson['address']);
     $("#left2").text(dataJson['name']);
     $("#left1").text(dataJson['address']);
-    $("#CALL_ME_NAV_BAR").attr("href", dataJson['phone']);
+   // $("#CALL_ME_NAV_BAR").attr("href", "tel:"+dataJson['phone']);
     $("#MESSAGE_NAV_BAR").attr("href", dataJson['phone']);
     $("#logo_image").attr("src", dataJson['logo']);
     $("#phtotographer_info_text").text(dataJson['description']);

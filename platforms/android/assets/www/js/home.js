@@ -321,7 +321,7 @@ function setPhotographerID(id) {
         dataType: "script",
         async: false
     });
-    hideLoader();
+   
 }
 
 function clientDetails(dataJson, other, dataVideo, videoPath) {
@@ -335,8 +335,8 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
     $("#address_circle").text(dataJson['address']);
     $("#left2").text(dataJson['name']);
     $("#left1").text(dataJson['address']);
-    $("#CALL_ME_NAV_BAR").attr("href", dataJson['phone']);
-    $("#MESSAGE_NAV_BAR").attr("href", dataJson['phone']);
+   // $("#CALL_ME_NAV_BAR").attr("href", dataJson['phone']);
+    //$("#MESSAGE_NAV_BAR").attr("href", dataJson['phone']);
     $("#logo_image").attr("src", dataJson['logo']);
     $("#phtotographer_info_text").text(dataJson['description']);
     $("#call_photographer_info").attr("href", dataJson['phone']);
@@ -400,7 +400,7 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
 
 
 
-
+	 hideLoader();
     return true;
 
 }
