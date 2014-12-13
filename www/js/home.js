@@ -175,7 +175,7 @@ $(document).ready(function() {
     /**
      * Event handlers for forum code.
      */
-    $('a[href="#forum"]').on('click', function() {        
+    $('a[href="#forum"]').on('click', function() {       
         var forumDiv = $('#forum_content');
         if (forumDiv.html().trim() === "") {
     		forumLoad();
@@ -315,7 +315,6 @@ function setPhotographerID(id) {
         dataType: "script",
         async: false
     });
-    hideLoader();
 }
 
 function clientDetails(dataJson, other, dataVideo, videoPath) {
@@ -329,8 +328,9 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
     $("#address_circle").text(dataJson['address']);
     $("#left2").text(dataJson['name']);
     $("#left1").text(dataJson['address']);
-   // $("#CALL_ME_NAV_BAR").attr("href", "tel:"+dataJson['phone']);
-    $("#MESSAGE_NAV_BAR").attr("href", dataJson['phone']);
+    $("#CALL_ME_NAV_BAR").attr("href", "tel:"+dataJson['phone']);
+    $("#MESSAGE_NAV_BAR").attr("href", "#message"); 
+    document.getElementById("vendorID").value=dataJson['id'];
     $("#logo_image").attr("src", dataJson['logo']);
     $("#phtotographer_info_text").text(dataJson['description']);
     $("#call_photographer_info").attr("href", dataJson['phone']);
@@ -394,7 +394,7 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
 
 
 
-
+hideLoader();
     return true;
 
 }
