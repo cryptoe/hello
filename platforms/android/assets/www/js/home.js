@@ -322,46 +322,46 @@ function setPhotographerID(id) {
         dataType: "script",
         async: false
     });
-
+   
 }
 
 function clientDetails(dataJson, other, dataVideo, videoPath) {
-        console.log(dataJson);
-        console.log(other);
-        console.log(dataVideo);
-        console.log(videoPath);
-        console.log(dataJson['name']);
-        $("#topName").text(dataJson['name']);
-        $("#circle_name").text(dataJson['name']);
-        $("#address_circle").text(dataJson['address']);
-        $("#left2").text(dataJson['name']);
-        $("#left1").text(dataJson['address']);
-        $("#CALL_ME_NAV_BAR").attr("href", dataJson['phone']);
-        $("#MESSAGE_NAV_BAR").attr("href", dataJson['phone']);
-        $("#logo_image").attr("src", dataJson['logo']);
-        $("#phtotographer_info_text").text(dataJson['description']);
-        $("#call_photographer_info").attr("href", dataJson['phone']);
-        $("#backdrop").attr("style", "background: url(" + dataJson['coverImage'] + ") no-repeat;");
-        $("#about").removeClass("display-call");
-        /** for(var i in other)
-         {
-              alert(i);
-              $("#photogallery-div").append(other[''] );
-         }**/
-        var videoHtml = ' <div class="ui-grid-a">';
-        for (var i in dataVideo) {
-            var block;
-            if (i % 2 == 0)
-                block = 'a';
-            else
-                block = 'b';
-            var video_url = encodeURI(videoPath + "/" + dataVideo[i]['path']);
-            var image_url = encodeURI(videoPath + "/" + dataVideo[i]['images'].split(',')[0]);
-            var div = '<div class="ui-block-' + block + '"><video poster="' + image_url + '" class="photographer-video-css" controls><source src=' + video_url + ' type=video/mp4></video></div>';
-            videoHtml = videoHtml + div;
-        }
-        videoHtml = videoHtml + '</div>';
-        console.log(videoHtml);
+    console.log(dataJson);
+    console.log(other);
+    console.log(dataVideo);
+    console.log(videoPath);
+    console.log(dataJson['name']);
+    $("#topName").text(dataJson['name']);
+    $("#circle_name").text(dataJson['name']);
+    $("#address_circle").text(dataJson['address']);
+    $("#left2").text(dataJson['name']);
+    $("#left1").text(dataJson['address']);
+   // $("#CALL_ME_NAV_BAR").attr("href", dataJson['phone']);
+    //$("#MESSAGE_NAV_BAR").attr("href", dataJson['phone']);
+    $("#logo_image").attr("src", dataJson['logo']);
+    $("#phtotographer_info_text").text(dataJson['description']);
+    $("#call_photographer_info").attr("href", dataJson['phone']);
+    $("#backdrop").attr("style", "background: url(" + dataJson['coverImage'] + ") no-repeat;");
+    $("#about").removeClass("display-call");
+    /** for(var i in other)
+     {
+          alert(i);
+          $("#photogallery-div").append(other[''] );
+     }**/
+    var videoHtml = ' <div class="ui-grid-a">';
+    for (var i in dataVideo) {
+        var block;
+        if (i % 2 == 0)
+            block = 'a';
+        else
+            block = 'b';
+        var video_url = encodeURI(videoPath + "/" + dataVideo[i]['path']);
+        var image_url = encodeURI(videoPath + "/" + dataVideo[i]['images'].split(',')[0]);
+        var div = '<div class="ui-block-' + block + '"><video poster="' + image_url + '" class="photographer-video-css" controls><source src=' + video_url + ' type=video/mp4></video></div>';
+        videoHtml = videoHtml + div;
+    }
+    videoHtml = videoHtml + '</div>';
+    console.log(videoHtml);
 
         $("#video-gallery-1").append(videoHtml);
         var gallery_number = 0;
@@ -403,9 +403,8 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
             }
         };
 
-
-        hideLoader();
-        return true;
+	 hideLoader();
+    return true;
 
     }
     // execute above function
