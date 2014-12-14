@@ -14,3 +14,4 @@ out
 # Gradle builds
 /build
 www/.project
+platforms/android/assets/www/*
