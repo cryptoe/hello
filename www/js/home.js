@@ -471,16 +471,16 @@ function showLoader() {
             theme: "b",
             html: ""
          });*/
-    // navigator.notification.activityStart("Please Wait", "Loading...");
+    navigator.notification.activityStart("Please Wait", "Loading...");
 
 }
 
 function hideLoader() {
     //$.mobile.loading( "hide" );
-    /** window.setTimeout(function() {
+     window.setTimeout(function() {
          navigator.notification.activityStop();
      }, 100);
-     **/
+     
 
 }
 
