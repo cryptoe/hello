@@ -516,8 +516,9 @@ function SK_loadOldStories() {
 
 /* Lightbox */
 function SK_openLightbox(post_id) {
+	return;
     if ($(".header-wrapper").width() < 960) {
-        window.location = 'index.php?tab1=custom_story&id=' + post_id;
+        window.location = 'index.php?tab1=story&id=' + post_id;
     } else {
         $(".sc-lightbox-container").remove();
         $(document.body).append('<div class="pre_load_wrap"><div class="bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div></div>');

@@ -214,8 +214,14 @@ function forumLoadSucces() {
         $('.header-content').append(followButton);
     }
 
+    //Add the refresh button.
     var refreshButton = '<a class="float-left" onclick="if(!isForumLoading)forumLoad();"> <i data-icon="refresh" class="icon-refresh"></i></a>';
     $('#forum_content .header-wrapper .header-content').append(refreshButton);
+    //Disable the avatar clicks.
+    $(".avatar").bind('click',function(){return false;});
+    $(".name").bind('click',function(){return false;});
+    
+    
     $(".header-join-wrapper").on('click', function() {
         var url = $('.header-join-wrapper').attr('href');
         $('.header-join-wrapper').attr('href', "");
@@ -241,8 +247,14 @@ function openNotification(data){
 		$('#forum_content').addClass('hidden');
 		$('#story_content').removeClass('hidden');
 		hideLoader();
+		//Add the back button
 		var backButton = '<a class="float-left ui-icon-back ui-btn-icon-left" onclick="hideNotification()"> <i data-icon="back" class="icon-back"></i></a>';
 		$('#story_content .header-wrapper .header-content').append(backButton);
+		//Disable the avatar clicks.
+	    $(".avatar").bind('click',function(){return false;});
+	    $(".name").bind('click',function(){return false;});
+	    
+		
 	});
 	
 }
