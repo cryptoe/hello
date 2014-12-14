@@ -357,13 +357,16 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
             block = 'b';
         var video_url = encodeURI(videoPath + "/" + dataVideo[i]['path']);
         var image_url = encodeURI(videoPath + "/" + dataVideo[i]['images'].split(',')[0]);
-        var div = '<div class="ui-block-' + block + '"><video poster="' + image_url + '" class="photographer-video-css" controls><source src=' + video_url + ' type=video/mp4></video></div>';
-        videoHtml = videoHtml + div;
+       // var div = '<div class="ui-block-' + block + '"><video poster="' + image_url + '" class="photographer-video-css" src=' + video_url + ' controls></video></div>';
+       var div = '<div class="ui-block-' + block + '"><video src="'+video_url+'" controls class="photographer-video-css"  ><div id="slider1" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"></div></video></div>';
+       videoHtml = videoHtml + div;
     }
     videoHtml = videoHtml + '</div>';
     console.log(videoHtml);
+    
 
         $("#video-gallery-1").append(videoHtml);
+       
         var gallery_number = 0;
         for (var prop in other) {
             gallery_number = gallery_number + 1;
@@ -403,7 +406,18 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
             }
         };
 
-	 hideLoader();
+	hideLoader();
+    $("#slider1").excoloSlider({
+        mouseNav: false,
+        interval: 1000, // = 5 seconds
+        prevnextAutoHide: true,
+        prevnextNav:false,
+        pagerNav:false,
+        autoPlay:true,
+        hoverPause:false,
+        autoSize:true
+        
+    });
     return true;
 
     }
@@ -459,16 +473,16 @@ function showLoader() {
             theme: "b",
             html: ""
          });*/
-    navigator.notification.activityStart("Please Wait", "Loading...");
+    //navigator.notification.activityStart("Please Wait", "Loading...");
 
 }
 
 function hideLoader() {
     //$.mobile.loading( "hide" );
-    window.setTimeout(function() {
+    /**window.setTimeout(function() {
         navigator.notification.activityStop();
     }, 100);
-
+**/
 
 }
 

@@ -83,9 +83,9 @@ width: 20%;
     display: block;
 }
 .photographer-video-css {
-    padding-bottom: 1em;
     width: 8em;
     height: 8em;
+    border: none !important;
 }
 .display-call {
     display: none !important;
