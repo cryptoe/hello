@@ -4,14 +4,19 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
-    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-1.9.0.min.js"></script>
+
+    <!--<script src="http://code.jquery.com/jquery-migrate-1.0.0.js"></script>
+-->
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/home.js"></script>
-
-
     <link rel="stylesheet" type="text/css" href="css/home.css" />
     <link rel="stylesheet" type="text/css" href="css/photographer-info.css" />
-    
+    <script src="js/jquery.swipebox.min.js"></script>
+    <link rel="stylesheet" href="css/swipebox.min.css">
+    <script src="js/jquery.excoloSlider.min.js"></script>
+    <link href="css/jquery.excoloSlider.css" rel="stylesheet">
+
     <title>Wed Up</title>
 </head>
 
@@ -48,7 +53,7 @@
         </div>
         <div data-role="popup" id="subCategoryWindow" data-theme="b">
             <ul data-role="listview" id="subCategory">
-         </ul>
+            </ul>
         </div>
 
         <div data-role="content" style="padding:0px;background-color: #353535;">
@@ -133,7 +138,7 @@ GALLERIES</a>
                 <div class="ui-grid-b" style="height: 8em">
                     <div class="ui-block-a" style="width:65%">
                         <div>
-                            <a id="CALL_ME_NAV_BAR" href="tel:9999" class="ui-btn ui-icon-phone ui-btn-icon-right photographer-call"><span class="call-text">CALL ME</span></a>
+                            <a id="CALL_ME_NAV_BAR" href="tel:18002752273" class="ui-btn ui-icon-phone ui-btn-icon-right photographer-call"><span class="call-text">CALL ME</span></a>
                         </div>
                         <div>
                             <a id="MESSAGE_NAV_BAR" href="#" class="ui-btn ui-icon-mail ui-btn-icon-right photographer-call" style="background-color: #1C8EEF !important; ">
@@ -202,7 +207,6 @@ GALLERIES</a>
                         </div>
                     </div>
                 </div>-->
-
                 <br/>
             </div>
 
@@ -258,54 +262,56 @@ GALLERIES</a>
                 </div>
             </div>
         </div>
-        </div>
-
-        <!--
+    </div>
+    <!--
                 **********************************************
                 ******************  Settings  ***************
                 **********************************************
                 -->
 
-     <div data-role="page" id="settings" data-theme="b">
-     <div data-role="header">
-                <h1>Settings</h1>
+    <div data-role="page" id="settings" data-theme="b">
+        <div data-role="header">
+            <h1>Settings</h1>
         </div>
         &nbsp;
-            <div data-role="content">
-                <ul data-role="listview" id="subCategory">
-                <li class="iconLeft ui-first-child" style="margin-right:1em;margin-left:1em;margin-bottom:.5em"><a href="#setting-page" class="ui-nodisc-icon ui-icon-carat-l ui-btn ui-btn-icon-right"><span style="float:right">Settings</span></a></li>
-                <li class="iconLeft ui-first-child" style="margin-right:1em;margin-left:1em;margin-bottom:.5em"><a href="#contactUS" class="ui-nodisc-icon ui-icon-carat-l ui-btn ui-btn-icon-right"><span style="float:right">Contacts</span></a></li>
-                <li class="iconLeft ui-first-child" style="margin-right:1em;margin-left:1em;margin-bottom:.5em"><a href="#" class="ui-nodisc-icon ui-icon-carat-l ui-btn ui-btn-icon-right"><span style="float:right">About</span></a></li>
+        <div data-role="content">
+            <ul data-role="listview" id="subCategory">
+                <li class="iconLeft ui-first-child" style="margin-right:1em;margin-left:1em;margin-bottom:.5em"><a href="#setting-page" class="ui-nodisc-icon ui-icon-carat-l ui-btn ui-btn-icon-right"><span style="float:right">Settings</span></a>
+                </li>
+                <li class="iconLeft ui-first-child" style="margin-right:1em;margin-left:1em;margin-bottom:.5em"><a href="#contactUS" class="ui-nodisc-icon ui-icon-carat-l ui-btn ui-btn-icon-right"><span style="float:right">Contacts</span></a>
+                </li>
+                <li class="iconLeft ui-first-child" style="margin-right:1em;margin-left:1em;margin-bottom:.5em"><a href="#" class="ui-nodisc-icon ui-icon-carat-l ui-btn ui-btn-icon-right"><span style="float:right">About</span></a>
+                </li>
+            </ul>
+        </div>
+        <div id="footer" data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#settings" style="background-color:#1D1D1D" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a>
+                    </li>
+                    <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
+                    </li>
+                    <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user">Forum</a>
+                    </li>
                 </ul>
             </div>
-            <div id="footer" data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#settings" style="background-color:#1D1D1D" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a>
-                        </li>
-                        <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
-                        </li>
-                        <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user">Forum</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
+    </div>
 
-        <!--
+    <!--
                 **********************************************
                 ******************  Contact-Us ***************
                 **********************************************
                 -->
-        <div data-role="page" id="contactUS" data-theme="b">
-            <div data-role="header">
-                <h1>Contact Us</h1>
-                <a href="#settings" data-icon="back" data-iconpos="notext"></a>
-               <!-- <a href="#" id="send-feedback" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-mail">Send</a>-->
-            </div>
-            <!-- /header -->
-            <div data-role="content">
-                <div class="contact-form">
+    <div data-role="page" id="contactUS" data-theme="b">
+        <div data-role="header">
+            <h1>Contact Us</h1>
+            <a href="#settings" data-icon="back" data-iconpos="notext"></a>
+            <!-- <a href="#" id="send-feedback" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-mail">Send</a>-->
+        </div>
+        <!-- /header -->
+        <div data-role="content">
+            <div class="contact-form">
                 <form action="http://wedup.net/mobileApp/mess.php" method="post">
                     <div data-role="fieldcontain" class="text-field">
                         <label for="Name">Name*:</label>
@@ -315,48 +321,48 @@ GALLERIES</a>
                         <label for="mobilephone">Mobile Number*:</label>
                         <input type="number" name="phone" value="" required/>
                     </div>
-                     <div data-role="fieldcontain" class="text-field">
-                       
+                    <div data-role="fieldcontain" class="text-field">
+
                         <input type="hidden" name="sended" value="1" />
                     </div>
                     <div data-role="fieldcontain">
                         <label for="message">Message*:</label>
-                        <textarea name="message"  style: "height:100px" placeholder="Enter your message here..." required></textarea>
+                        <textarea name="message" style: "height:100px" placeholder="Enter your message here..." required></textarea>
                     </div>
                     <input type="submit" value="Submit">
                     <input type="reset" value="Reset">
-                    </form>
-                </div>
-                <!-- //.contact-form -->
+                </form>
             </div>
-            <!-- /content -->
-            <div id="footer" data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#settings" style="background-color:#1D1D1D" data-icon="gear">Settings</a>
-                        </li>
-                        <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
-                        </li>
-                        <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user">Forum</a>
-                        </li>
-                    </ul>
-                </div>
+            <!-- //.contact-form -->
+        </div>
+        <!-- /content -->
+        <div id="footer" data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#settings" style="background-color:#1D1D1D" data-icon="gear">Settings</a>
+                    </li>
+                    <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
+                    </li>
+                    <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user">Forum</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!--
+    </div>
+    <!--
                 **********************************************
                 ******************  Message ***************
                 **********************************************
                 -->
-        <div data-role="page" id="message" data-theme="b">
-            <div data-role="header">
-                <h1>Message</h1>
-                <a data-rel="back" data-icon="back" data-iconpos="notext"></a>
-               <!-- <a href="#" id="send-feedback" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-mail">Send</a>-->
-            </div>
-            <!-- /header -->
-            <div data-role="content">
-                <div class="contact-form">
+    <div data-role="page" id="message" data-theme="b">
+        <div data-role="header">
+            <h1>Message</h1>
+            <a data-rel="back" data-icon="back" data-iconpos="notext"></a>
+            <!-- <a href="#" id="send-feedback" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-mail">Send</a>-->
+        </div>
+        <!-- /header -->
+        <div data-role="content">
+            <div class="contact-form">
                 <form action="http://wedup.net/mobileApp/mess.php" method="post">
                     <div data-role="fieldcontain" class="text-field">
                         <label for="Name">Name*:</label>
@@ -366,92 +372,92 @@ GALLERIES</a>
                         <label for="mobilephone">Mobile Number*:</label>
                         <input type="number" name="phone" value="" required/>
                     </div>
-                     <div data-role="fieldcontain" class="text-field">
-                       
+                    <div data-role="fieldcontain" class="text-field">
+
                         <input type="hidden" name="sended" value="1" />
                         <input type="hidden" name="vendorID" id="vendorID" value="" />
                     </div>
                     <div data-role="fieldcontain">
                         <label for="message">Message*:</label>
-                        <textarea name="message"  style: "height:100px" placeholder="Enter your message here..." required></textarea>
+                        <textarea name="message" style: "height:100px" placeholder="Enter your message here..." required></textarea>
                     </div>
                     <input type="submit" value="Submit">
                     <input type="reset" value="Reset">
-                    </form>
-                </div>
-                <!-- //.contact-form -->
+                </form>
             </div>
-            <!-- /content -->
-            <div id="footer" data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#settings" style="background-color:#1D1D1D" data-icon="gear">Settings</a>
-                        </li>
-                        <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
-                        </li>
-                        <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user">Forum</a>
-                        </li>
-                    </ul>
-                </div>
+            <!-- //.contact-form -->
+        </div>
+        <!-- /content -->
+        <div id="footer" data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#settings" style="background-color:#1D1D1D" data-icon="gear">Settings</a>
+                    </li>
+                    <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
+                    </li>
+                    <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user">Forum</a>
+                    </li>
+                </ul>
             </div>
         </div>
-   
-         <!--
+    </div>
+
+    <!--
                 **********************************************
                 ******************  Settings-Page  ***************
                 **********************************************
                 -->
-                <div data-role="page" id="setting-page" data-theme="b">
-                 <div data-role="header">
-                <h1>Settings</h1>
-                <a href="#settings" data-icon="back" data-iconpos="notext"></a>
-                </div>
-            <div data-role="content">
-                <form>
-                    <label>
-                    <input type="checkbox" name="checkbox-0 ">Allow Notifications 
-                    </label>
-                </form>
-                </div>
-            <div id="footer" data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#settings" style="background-color:#1D1D1D" data-icon="gear">Settings</a>
-                        </li>
-                        <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
-                        </li>
-                        <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user">Forum</a>
-                        </li>
-                    </ul>
-                </div>
+    <div data-role="page" id="setting-page" data-theme="b">
+        <div data-role="header">
+            <h1>Settings</h1>
+            <a href="#settings" data-icon="back" data-iconpos="notext"></a>
+        </div>
+        <div data-role="content">
+            <form>
+                <label>
+                    <input type="checkbox" name="checkbox-0 ">Allow Notifications
+                </label>
+            </form>
+        </div>
+        <div id="footer" data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#settings" style="background-color:#1D1D1D" data-icon="gear">Settings</a>
+                    </li>
+                    <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
+                    </li>
+                    <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user">Forum</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!--
+    </div>
+    <!--
     **********************************************
     ******************  Forum ********************
     **********************************************
     -->
-        <div data-role="page" id="forum" data-theme="b" style="direction: rtl;">
-            <div data-role="content" id="forum_content"></div>
-            <div id="footer" data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#settings" style="background-color:#1D1D1D" data-icon="gear">Settings</a>
-                        </li>
-                        <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
-                        </li>
-                        <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user" class="ui-btn-active ui-state-persist">Forum</a>
-                        </li>
-                    </ul>
-                </div>
+    <div data-role="page" id="forum" data-theme="b" style="direction: rtl;">
+        <div data-role="content" id="forum_content"></div>
+        <div id="footer" data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#settings" style="background-color:#1D1D1D" data-icon="gear">Settings</a>
+                    </li>
+                    <li><a href="#home" style="background-color:#1D1D1D" data-icon="grid">Suppliers</a>
+                    </li>
+                    <li><a href="#forum" style="background-color:#1D1D1D" data-icon="user" class="ui-btn-active ui-state-persist">Forum</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!-- content:forum -->
+    </div>
+    <!-- content:forum -->
 
-        <script src="http://wedup.net/mobileapp/getClientsAll.php"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script> 
-  
+    <script src="http://wedup.net/mobileapp/getClientsAll.php"></script>
+    <!--<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    -->
 </body>
 
 </html>
