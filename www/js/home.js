@@ -104,19 +104,13 @@ $(document).ready(function() {
         showLoader();
         var catID = $(this).attr('value');
         $('#subCategory').empty();
-        $('#subCategory').append($("<li id=0>").append("<a href=\"javascript:subCategoryClicked('ALL')\" data-rel=\"dialog\"  class=\"ui-btn ui-btn-icon-right ui-icon-carat-l\">ALL</a>"));
+        $('#subCategory').append($("<li id=0 class=\"iconLeft ui-first-child \">").append("<a href=\"javascript:subCategoryClicked('ALL')\" class=\"ui-nodisc-icon ui-icon-carat-l ui-btn ui-btn-icon-right\" data-rel=\"dialog\"><span style=\"float:right\">ALL</span></a>"));
         for (var i = 0; i < subCategoryData.length; i++) {
             if (subCategoryData[i]['typeid'] == catID) {
                 var name = subCategoryData[i]['name'];
                 var id = subCategoryData[i]['id'];
-                $('#subCategory').append($("<li id=" + id + " class=\"iconLeft\">").append("<a href=\"javascript:subCategoryClicked('" + name + "')\" data-rel=\"dialog\" class=\"ui-btn ui-btn-icon-right ui-icon-carat-l\">" + name + "</a>"));
+                $('#subCategory').append($("<li id=" + id + " class=\"iconLeft ui-first-child \">").append("<a href=\"javascript:subCategoryClicked('" + name + "')\" class=\"ui-nodisc-icon ui-icon-carat-l ui-btn ui-btn-icon-right\" data-rel=\"dialog\"><span style=\"float:right\">" + name + "</span></a>"));
             }
-            /*else if(catID == 1)
-            {
-                var name = subCategoryData[i]['name'];
-                var id = subCategoryData[i]['id'];
-                $('#subCategory').append($("<li id="+id+">").append("<a href=\"javascript:subCategoryClicked('"+name+"')\" data-rel=\"dialog\" class=\"ui-btn ui-btn-icon-right ui-icon-carat-r\">"+name+"</a>"));
-            }*/
         }
         var ni = document.getElementById("regionBtn");
         ni.innerHTML = "Region";
@@ -181,7 +175,7 @@ $(document).ready(function() {
     /**
      * Event handlers for forum code.
      */
-    $('a[href="#forum"]').on('click', function() {        
+    $('a[href="#forum"]').on('click', function() {       
         var forumDiv = $('#forum_content');
         if (forumDiv.html().trim() === "") {
     		forumLoad();
@@ -321,7 +315,6 @@ function setPhotographerID(id) {
         dataType: "script",
         async: false
     });
-    hideLoader();
 }
 
 function clientDetails(dataJson, other, dataVideo, videoPath) {
@@ -335,8 +328,9 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
     $("#address_circle").text(dataJson['address']);
     $("#left2").text(dataJson['name']);
     $("#left1").text(dataJson['address']);
-   // $("#CALL_ME_NAV_BAR").attr("href", "tel:"+dataJson['phone']);
-    $("#MESSAGE_NAV_BAR").attr("href", dataJson['phone']);
+    $("#CALL_ME_NAV_BAR").attr("href", "tel:"+dataJson['phone']);
+    $("#MESSAGE_NAV_BAR").attr("href", "#message"); 
+    document.getElementById("vendorID").value=dataJson['id'];
     $("#logo_image").attr("src", dataJson['logo']);
     $("#phtotographer_info_text").text(dataJson['description']);
     $("#call_photographer_info").attr("href", dataJson['phone']);
@@ -400,7 +394,7 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
 
 
 
-
+hideLoader();
     return true;
 
 }
@@ -432,6 +426,7 @@ function setClientsDet(data, regionJson, subCategoryJson) {
         var id = regionJson[i]['id'];
         $('#region').append($("<li id=" + id + " class=\"iconLeft\">").append("<a href=\"javascript:regionClicked('" + name + "')\" class=\"ui-nodisc-icon ui-icon-carat-l \" data-rel=\"dialog\"><span style=\"float:right\">" + name + "</span></a>"));
     }
+    
     $('#subCategory').append($("<li id=0 class=\"iconLeft\">").append("<a href=\"javascript:subCategoryClicked('ALL')\" class=\"ui-nodisc-icon ui-icon-carat-l \" data-rel=\"dialog\"><span style=\"float:right\">ALL</span></a>"));
     for (var i = 0; i < subCategoryJson.length; i++) {
         subCategoryData = subCategoryJson;
