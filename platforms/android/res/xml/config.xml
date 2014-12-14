@@ -19,13 +19,16 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
-    <name>HelloWorld</name>
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="4000" />
+    <name>WedApp</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Discover and interact with wedding photographers.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+       Karan Kumar,Amit Kumar,Tejas Kale.
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <access launch-external="yes" origin="tel:*" />
 </widget>

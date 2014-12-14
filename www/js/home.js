@@ -215,7 +215,7 @@ function forumLoadSucces() {
     }
 
     var refreshButton = '<a class="float-left" onclick="if(!isForumLoading)forumLoad();"> <i data-icon="refresh" class="icon-refresh"></i></a>';
-    $('.header-content').append(refreshButton);
+    $('#forum_content .header-wrapper .header-content').append(refreshButton);
     $(".header-join-wrapper").on('click', function() {
         var url = $('.header-join-wrapper').attr('href');
         $('.header-join-wrapper').attr('href', "");
@@ -230,7 +230,26 @@ function forumLoadSucces() {
     });
     hideLoader();
 }
-
+/*
+ * if needed to open custom notification, use "=storyId" in the parameters.
+ */
+function openNotification(data){
+	showLoader();
+	var storyId = data.split('=').pop();
+	var url = "http://forum-hatunot.com/forum-custom/Script//index.php?tab1=custom_story&id="+storyId;
+	$('#story_content').load(url,function(){
+		$('#forum_content').addClass('hidden');
+		$('#story_content').removeClass('hidden');
+		hideLoader();
+		var backButton = '<a class="float-left ui-icon-back ui-btn-icon-left" onclick="hideNotification()"> <i data-icon="back" class="icon-back"></i></a>';
+		$('#story_content .header-wrapper .header-content').append(backButton);
+	});
+	
+}
+function hideNotification(){
+	$('#forum_content').removeClass('hidden');
+	$('#story_content').addClass('hidden');
+}
 function filterData(regionID, subCategID) {
     showLoader();
     var divElement = "";
