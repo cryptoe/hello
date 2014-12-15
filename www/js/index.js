@@ -35,7 +35,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         // app.receivedEvent('deviceready');
-             navigator.splashscreen.hide();
+         //    navigator.splashscreen.hide();
        //  if(Connection.offline)
          //{
              
