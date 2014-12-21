@@ -5,6 +5,7 @@ var selectedRegionID = 0;
 var selectedSubCategoryID = 0;
 var registerationId;
 var platform;
+var vendorID = 0;
 
 function regionClicked(val) {
     var ni = document.getElementById("regionBtn");
@@ -179,15 +180,108 @@ $(document).ready(function() {
     /**
      * Event handlers for forum code.
      */
-    $('a[href="#forum"]').on('click', function() {
+   /* $('a[href="#forum"]').on('click', function() {       
         var forumDiv = $('#forum_content');
         if (forumDiv.html().trim() === "") {
             forumLoad();
         }
-    });
+    });*/
 
+     $("#msg-submit-btn").on("click", function() {
+        
+        showLoader();
+        if($("#msg-name").val() == "")
+        {
+            navigator.notification.alert(
+            'Please enter Name.',  // message
+            '',         // callback
+            'Error',            // title
+            'Ok'                  // buttonName
+            );
+           hideLoader();
+            
+        }
+        else if($("#msg-mobile").val() == "")
+        {
+            navigator.notification.alert(
+            'Please give Mobile Number.',  // message
+            '',         // callback
+            'Error',            // title
+            'Ok'                  // buttonName
+            );
+            hideLoader();
+        }
+        else if($("#msg-message").val() == "")
+        {
+            navigator.notification.alert(
+            'Please provide a message.',  // message
+            '',         // callback
+            'Error',            // title
+            'Ok'                  // buttonName
+            );
+            hideLoader();
+        }
+        else
+        {
+           data = "http://wedup.net/mobileApp/mess.php?name="+$("#msg-name").val().trim()+"&sended=1&phone="+$("#msg-mobile").val().trim()+"&message="+$("#msg-message").val().trim()+"&vendorID="+vendorID;
+            $.ajax({url:data,success:function(result){
+               
+                window.location.href="#msg-success";
+                document.getElementById("msg-status").innerHTML = result;        
+                hideLoader();
+            }}); 
+        }
+        
 
+     });
 
+       $("#contact-submit-btn").on("click", function() {
+
+        showLoader();
+        if($("#contact-name").val() == "")
+        {
+            navigator.notification.alert(
+            'Please enter Name.',  // message
+            '',         // callback
+            'Error',            // title
+            'Ok'                  // buttonName
+            );
+           hideLoader();
+
+        }
+        else if($("#contact-mobile").val() == "")
+        {
+            navigator.notification.alert(
+            'Please give Mobile Number.',  // message
+            '',         // callback
+            'Error',            // title
+            'Ok'                  // buttonName
+            );
+            hideLoader();
+        }
+        else if($("#contact-message").val() == "")
+        {
+            navigator.notification.alert(
+            'Please provide a message.',  // message
+            '',         // callback
+            'Error',            // title
+            'Ok'                  // buttonName
+            );
+            hideLoader();
+        }
+        else
+        {
+           data = "http://wedup.net/mobileApp/mess.php?name="+$("#contact-name").val().trim()+"&sended=1&phone="+$("#contact-mobile").val().trim()+"&message="+$("#contact-message").val().trim();
+            $.ajax({url:data,success:function(result){
+               
+                window.location.href="#msg-success";
+                document.getElementById("msg-status").innerHTML = result;        
+                hideLoader();
+            }}); 
+        }
+        
+
+     });
 
     $("#regionBtn").click(function() {
         $('.ui-listview  a').removeClass('ui-icon-carat-r');
@@ -197,6 +291,10 @@ $(document).ready(function() {
         $('.ui-listview  a').removeClass('ui-icon-carat-r');
     });
 
+    var forumDiv = $('#forum_content');
+        if (forumDiv.html().trim() === "") {
+    		forumLoad();
+    	}	
 
     $('#allowNotifications').change(function() {
         if ($(this).attr('checked')) {
@@ -223,10 +321,16 @@ $(document).ready(function() {
 var isForumLoading = false;
 var forumUrl = "http://forum-hatunot.com/forum-custom/script/index.php?tab1=custom_timeline&id=wedAppForumTest";
 
-function forumLoad() {
+function forumLoad(fbFlag) {
     showLoader();
     var forumDiv = $('#forum_content');
     isForumLoading = true;
+    if(fbFlag){
+    	var url="http://forum-hatunot.com/forum-custom/script/import_custom.php?code=123&type=facebook&access_token="+fbAccessToken;
+    	$('#forum_content').load(url, forumLoadSucces);
+    }
+    else
+    	console.log(forumUrl);
     $('#forum_content').load(forumUrl, forumLoadSucces);
 }
 
@@ -251,18 +355,25 @@ function forumLoadSucces() {
 
 
         $(".header-join-wrapper").on('click', function() {
-            var url = $('.header-join-wrapper').attr('href');
-            $('.header-join-wrapper').attr('href', "");
-            var ref = window.open(url, '_blank', 'location=no');
-            ref.addEventListener('loadstop', function(event) {
-                var success = "http://forum-hatunot.com/forum-custom/Script//index.php?tab1=home#_=_";
-                if (event.url === success) {
-                    ref.close();
-                    $('#forum_content').load(forumUrl, forumLoadSucces);
-                }
+
+        	fbLogin();
+	        navigator.splashscreen.hide();
+        	return false;
             });
-        });
+//        $(".header-join-wrapper").on('click', function() {
+//            var url = $('.header-join-wrapper').attr('href');
+//            $('.header-join-wrapper').attr('href', "");
+//            var ref = window.open(url, '_blank', 'location=no');
+//            ref.addEventListener('loadstop', function(event) {
+//                var success = "http://forum-hatunot.com/forum-custom/Script//index.php?tab1=home#_=_";
+//                if (event.url === success) {
+//                    ref.close();
+//                    $('#forum_content').load(forumUrl, forumLoadSucces);
+//                }
+//            });
+//        });
         hideLoader();
+
     }
     /*
      * if needed to open custom notification, use "=storyId" in the parameters.
@@ -289,6 +400,26 @@ function openNotification(data) {
 
     });
 
+}
+
+var fbAccessToken,resp;
+function fbLogin(){
+	if (facebookConnectPlugin) {
+		facebookConnectPlugin.getLoginStatus(function(response) {
+			  if (response.status === 'connected') {
+			    fbAccessToken = response.authResponse.accessToken;
+			  } else{
+				  facebookConnectPlugin.login(['email'],
+				            function(data) {
+				                 resp = data.authResponse;
+				                 fbAccessToken = resp.accessToken;
+				                 forumLoad(true);
+				            },
+				            function(err) {
+				        });
+			  }});
+    }
+	return false;
 }
 
 function hideNotification() {
@@ -407,7 +538,7 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
         $("#left1").text(dataJson['address']);
         $("#CALL_ME_NAV_BAR").attr("href", "tel:" + dataJson['phone']);
         $("#MESSAGE_NAV_BAR").attr("href", "#message");
-        document.getElementById("vendorID").value = dataJson['id'];
+        //document.getElementById("vendorID").value = dataJson['id'];
         $("#logo_image").attr("src", dataJson['logo']);
         $("#phtotographer_info_text").text(dataJson['description']);
         $("#call_photographer_info").attr("href", "tel:" + dataJson['phone']);
