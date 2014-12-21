@@ -93,7 +93,7 @@ padding-bottom: 6px;
     height: 9em;
     border: none !important;
     position:absolute;
-    bottom:0;
+ /*   bottom:0;*/
     right:0;
 }
 .display-call {
