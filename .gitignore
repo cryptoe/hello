@@ -15,4 +15,6 @@ out
 /build
 #Other phone gapp build files
 www/.project
+/plugins/*
+platforms/*
 platforms/android/assets/www/*
