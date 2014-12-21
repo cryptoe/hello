@@ -187,6 +187,10 @@ $(document).ready(function() {
             forumLoad();
         }
     });*/
+    
+
+
+
 
      $("#msg-submit-btn").on("click", function() {
         
@@ -319,6 +323,19 @@ $(document).ready(function() {
     });
     $('#allowNotifications').prop('checked', true);
 });
+
+function videoLoader(videoUrl)
+{
+    var ref = window.open(videoUrl, '_blank', 'location=no');
+           ref.addEventListener('backbutton', function(event) {
+                
+                    ref.close();
+    });
+    return false;
+}
+
+
+
 var isForumLoading = false;
 var forumUrl = "http://forum-hatunot.com/forum-custom/script/index.php?tab1=custom_timeline&id=wedAppForumTest";
 
@@ -560,7 +577,7 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
                 block = 'b';
             var video_url = encodeURI(videoPath + "/" + dataVideo[i]['path']);
             var image_url = encodeURI(videoPath + "/" + dataVideo[i]['images'].split(',')[0]);
-            var div = '<div class="ui-block-' + block + '"><a href="'+video_url+'" class="inlineOverlay"><img src="' + image_url + '" class="photographer-video-css"><img src="img/play_overlay.png" class="overlay-css"></img><img></a></div>';
+            var div = '<div class="ui-block-' + block + '"><a  class="inlineOverlay" onclick="videoLoader(\''+video_url+'\')"><img src="' + image_url + '" class="photographer-video-css"><img src="img/play_overlay.png" class="overlay-css"></img><img></a></div>';
             //var div = '<div class="ui-block-' + block + '"><video src="' + video_url + '" controls class="photographer-video-css"  ><div id="slider1" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"></div></video></div>';
             videoHtml = videoHtml + div;
         }

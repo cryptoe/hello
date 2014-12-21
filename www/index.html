@@ -15,10 +15,11 @@
     <link rel="stylesheet" href="css/swipebox.min.css">
     <script src="js/jquery.excoloSlider.min.js"></script>
     <link href="css/jquery.excoloSlider.css" rel="stylesheet">
-    <script src="js/PushNotification.js"></script>
+   
      <script type="text/javascript" src="cordova.js"></script>
      <script src="js/home.js"></script>
      <script type="text/javascript" src="js/index.js"></script>
+     <script src="js/PushNotification.js"></script>
 
     <title>Wed Up</title>
 </head>
@@ -489,7 +490,7 @@ GALLERIES</a>
             function onDeviceReady() {
                 $("#app-status-ul").append('<li>deviceready event received</li>');
                 
-              /*  document.addEventListener("backbutton", function(e)
+                /**document.addEventListener("backbutton", function(e)
                 {
                     $("#app-status-ul").append('<li>backbutton event received</li>');
                     
@@ -505,7 +506,8 @@ GALLERIES</a>
                         navigator.app.backHistory();
                     }
                 }, false);
-                */
+                **/
+                
                 try 
                 { 
                     pushNotification = window.plugins.pushNotification;
