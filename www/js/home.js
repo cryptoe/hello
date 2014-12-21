@@ -697,7 +697,7 @@ function showLoader() {
             theme: "b",
             html: ""
          });*/
-//    navigator.notification.activityStart("Please Wait", "Loading...");
+    navigator.notification.activityStart("Please Wait", "Loading...");
 
 }
 
