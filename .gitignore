@@ -1,5 +1,5 @@
 # Non-project-specific build files:
-build.xml
+#build.xml
 local.properties
 /gradlew
 /gradlew.bat
@@ -14,4 +14,4 @@ out
 # Gradle builds
 /build
 www/.project
-platforms/android/assets/www/*
+#platforms/android/assets/www/*
