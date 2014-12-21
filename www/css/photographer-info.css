@@ -9,7 +9,7 @@
 .photographer-head {
  /* background: url(../img/profile-header-img1.png) no-repeat;
    */height: 165px;
-    background-size: cover;
+    background-size: cover !important;
     background-position: center center;
     position: relative;
     width: 100%;
@@ -83,12 +83,25 @@ width: 20%;
     display: block;
 }
 .photographer-video-css {
-    width: 8em;
-    height: 8em;
+    width: 9.9em;
+height: 9em;
+border: none !important;
+padding-bottom: 6px;
+}
+.overlay-css{
+     width: 10em;
+    height: 9em;
     border: none !important;
+    position:absolute;
+    bottom:0;
+    right:0;
 }
 .display-call {
     display: none !important;
+}
+.inlineOverlay{
+    position: relative;
+display: inline;
 }
 /**.top-header
 {

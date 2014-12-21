@@ -387,6 +387,11 @@ function setPhotographerID(id) {
 
 function sendRegisterationId(id) {
 registerationId=id;
+$.ajax({
+                type: "GET",
+                url: "http://wedup.net/mobileapp/addnot.php?device=" + platform + "&code=" + registerationId,
+                dataType: "script"
+            });
 }
 
 function clientDetails(dataJson, other, dataVideo, videoPath) {
@@ -422,8 +427,8 @@ function clientDetails(dataJson, other, dataVideo, videoPath) {
                 block = 'b';
             var video_url = encodeURI(videoPath + "/" + dataVideo[i]['path']);
             var image_url = encodeURI(videoPath + "/" + dataVideo[i]['images'].split(',')[0]);
-            // var div = '<div class="ui-block-' + block + '"><video poster="' + image_url + '" class="photographer-video-css" src=' + video_url + ' controls></video></div>';
-            var div = '<div class="ui-block-' + block + '"><video src="' + video_url + '" controls class="photographer-video-css"  ><div id="slider1" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"></div></video></div>';
+            var div = '<div class="ui-block-' + block + '"><a href="'+video_url+'" class="inlineOverlay"><img src="' + image_url + '" class="photographer-video-css"><img src="img/play_overlay.png" class="overlay-css"></img><img></a></div>';
+            //var div = '<div class="ui-block-' + block + '"><video src="' + video_url + '" controls class="photographer-video-css"  ><div id="slider1" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"> <img src="img/photograper.png" class="photographer-video-css"></div></video></div>';
             videoHtml = videoHtml + div;
         }
         videoHtml = videoHtml + '</div>';
