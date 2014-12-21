@@ -13,5 +13,7 @@ gen
 out
 # Gradle builds
 /build
+#Other phone gapp build files
 www/.project
 platforms/android/assets/www/*
+
