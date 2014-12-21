@@ -376,7 +376,6 @@ function forumLoadSucces() {
         $(".header-join-wrapper").on('click', function() {
 
         	fbLogin();
-	        navigator.splashscreen.hide();
         	return false;
             });
 //        $(".header-join-wrapper").on('click', function() {
@@ -391,7 +390,10 @@ function forumLoadSucces() {
 //                }
 //            });
 //        });
+//
         hideLoader();
+        navigator.splashscreen.hide();
+ 
 
     }
     /*
@@ -695,7 +697,7 @@ function showLoader() {
             theme: "b",
             html: ""
          });*/
-    navigator.notification.activityStart("Please Wait", "Loading...");
+//    navigator.notification.activityStart("Please Wait", "Loading...");
 
 }
 
