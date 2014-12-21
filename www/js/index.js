@@ -43,7 +43,7 @@ var app = {
     },
     onOffline: function(){
         navigator.notification.alert(
-    'No Internet Connection Found!!!',  // message
+    'No Internet Connection Found.',  // message
     app.receivedEvent('photographersList'),         // callback
     'Error',            // title
     'OK'                  // buttonName
