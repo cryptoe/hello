@@ -516,6 +516,7 @@ function SK_loadOldStories() {
 
 /* Lightbox */
 function SK_openLightbox(post_id) {
+	return;
     if ($(".header-wrapper").width() < 960) {
         window.location = 'index.php?tab1=story&id=' + post_id;
     } else {
@@ -680,3 +681,5 @@ function addEmoToInput(code,input) {
     
     inputTag.keyup();
 }
+
+//# sourceURL=js/forum/script.js

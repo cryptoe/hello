@@ -63,6 +63,27 @@ module.exports = [
         "clobbers": [
             "window.open"
         ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
+        "id": "com.phonegap.plugins.PushPlugin.PushNotification",
+        "clobbers": [
+            "PushNotification"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.device/www/device.js",
+        "id": "org.apache.cordova.device.device",
+        "clobbers": [
+            "device"
+        ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.facebookconnect/www/phonegap/plugin/facebookConnectPlugin/facebookConnectPlugin.js",
+        "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
+        "clobbers": [
+            "facebookConnectPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -73,7 +94,10 @@ module.exports.metadata =
     "org.apache.cordova.splashscreen": "0.3.4",
     "org.apache.cordova.network-information": "0.2.13",
     "org.apache.cordova.dialogs": "0.2.10",
-    "org.apache.cordova.inappbrowser": "0.5.3"
+    "org.apache.cordova.inappbrowser": "0.5.3",
+    "com.phonegap.plugins.PushPlugin": "2.4.0",
+    "org.apache.cordova.device": "0.2.13",
+    "com.phonegap.plugins.facebookconnect": "0.10.1"
 }
 // BOTTOM OF METADATA
 });

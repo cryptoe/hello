@@ -223,11 +223,18 @@ $(document).ready(function() {
 var isForumLoading = false;
 var forumUrl = "http://forum-hatunot.com/forum-custom/script/index.php?tab1=custom_timeline&id=wedAppForumTest";
 
-function forumLoad() {
+function forumLoad(fbFlag) {
     showLoader();
     var forumDiv = $('#forum_content');
     isForumLoading = true;
-    $('#forum_content').load(forumUrl, forumLoadSucces);
+    if(fbFlag){
+    	var url="http://forum-hatunot.com/forum-custom/script/import_custom.php?code=123&type=facebook&access_token="+fbAccessToken;
+    	$('#forum_content').load(url, forumLoadSucces);
+    }
+    else
+    	console.log(forumUrl);
+    	$('#forum_content').load(forumUrl, forumLoadSucces);
+    
 }
 
 function forumLoadSucces() {
@@ -249,19 +256,23 @@ function forumLoadSucces() {
             return false;
         });
 
-
-        $(".header-join-wrapper").on('click', function() {
-            var url = $('.header-join-wrapper').attr('href');
-            $('.header-join-wrapper').attr('href', "");
-            var ref = window.open(url, '_blank', 'location=no');
-            ref.addEventListener('loadstop', function(event) {
-                var success = "http://forum-hatunot.com/forum-custom/Script//index.php?tab1=home#_=_";
-                if (event.url === success) {
-                    ref.close();
-                    $('#forum_content').load(forumUrl, forumLoadSucces);
-                }
-            });
+        $(".header-join-wrapper").on('click',function(){
+        	console.log("ErefeafdasdSAd");
+        	fbLogin();
+        	return false;
         });
+//        $(".header-join-wrapper").on('click', function() {
+//            var url = $('.header-join-wrapper').attr('href');
+//            $('.header-join-wrapper').attr('href', "");
+//            var ref = window.open(url, '_blank', 'location=no');
+//            ref.addEventListener('loadstop', function(event) {
+//                var success = "http://forum-hatunot.com/forum-custom/Script//index.php?tab1=home#_=_";
+//                if (event.url === success) {
+//                    ref.close();
+//                    $('#forum_content').load(forumUrl, forumLoadSucces);
+//                }
+//            });
+//        });
         hideLoader();
     }
     /*
@@ -289,6 +300,26 @@ function openNotification(data) {
 
     });
 
+}
+
+var fbAccessToken,resp;
+function fbLogin(){
+	if (facebookConnectPlugin) {
+		facebookConnectPlugin.getLoginStatus(function(response) {
+			  if (response.status === 'connected') {
+			    fbAccessToken = response.authResponse.accessToken;
+			  } else{
+				  facebookConnectPlugin.login(['email'],
+				            function(data) {
+				                 resp = data.authResponse;
+				                 fbAccessToken = resp.accessToken;
+				                 forumLoad(true);
+				            },
+				            function(err) {
+				        });
+			  }});
+    }
+	return false;
 }
 
 function hideNotification() {
