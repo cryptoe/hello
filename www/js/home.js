@@ -697,14 +697,27 @@ function showLoader() {
             theme: "b",
             html: ""
          });*/
-    navigator.notification.activityStart("Please Wait", "Loading...");
+
+try {
+        if (navigator != null) {
+            navigator.notification.activityStart("Please Wait", "Loading...");
+        }
+    } catch (e) {
+       
+    }
 
 }
 
 function hideLoader() {
     //$.mobile.loading( "hide" );
     window.setTimeout(function() {
-        navigator.notification.activityStop();
+       try {
+        if (navigator != null) {
+            navigator.notification.activityStart("Please Wait", "Loading...");
+        }
+    } catch (e) {
+       
+    }
     }, 100);
 
 
