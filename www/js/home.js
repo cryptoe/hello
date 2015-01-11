@@ -24,6 +24,20 @@ $(document).ready(function() {
 
    
     getMobileOperatingSystem();
+
+    if (window.spinnerplugin) {
+        $.extend($.mobile, {
+            loading: function() {
+                // Show/hide spinner
+                var arg = arguments ? arguments[0] : '';
+                if (arg == 'show') spinnerplugin.show({'overlay':true});
+                else if (arg == 'hide') spinnerplugin.hide();           
+
+                // Compatibility with jQM 1.4
+                return { loader: function() { } }
+            }
+        }); 
+    }
    
     $("#region").change(function() {
 
@@ -699,7 +713,14 @@ function showLoader() {
          });*/
 
  console.log("here in show");
-  if (navigator != null) {
+
+ spinnerplugin.show({
+    overlay: true,    // defaults to true
+    timeout: 30,       // defaults to 0 (no timeout)
+    fullscreen: true,  // defaults to false
+});
+
+/**  if (navigator != null) {
 try {
       
             navigator.notification.activityStart("Please Wait", "Loading...");
@@ -712,10 +733,12 @@ else
 {
     console.log("navigator is null ");
 }
-
+**/
 }
 
 function hideLoader() {
+    /**
+
     //$.mobile.loading( "hide" );
     console.log("here in hide");
     window.setTimeout(function() {
@@ -734,7 +757,9 @@ else
 }
     }, 100);
 
+**/
 
+spinnerplugin.hide();
 }
 
 
