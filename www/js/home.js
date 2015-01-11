@@ -698,26 +698,40 @@ function showLoader() {
             html: ""
          });*/
 
+ console.log("here in show");
+  if (navigator != null) {
 try {
-        if (navigator != null) {
+      
             navigator.notification.activityStart("Please Wait", "Loading...");
-        }
+        
     } catch (e) {
-       
+       console.log(e);
     }
+}
+else
+{
+    console.log("navigator is null ");
+}
 
 }
 
 function hideLoader() {
     //$.mobile.loading( "hide" );
+    console.log("here in hide");
     window.setTimeout(function() {
+          if (navigator != null) {
        try {
-        if (navigator != null) {
+     
             navigator.notification.activityStart("Please Wait", "Loading...");
         }
-    } catch (e) {
-       
+     catch (e) {
+       console.log(e);
     }
+}
+else
+{
+    console.log("navigator is null");
+}
     }, 100);
 
 
